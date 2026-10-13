@@ -1,0 +1,140 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KL Placement Management System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="sidebar">
+  <h2>🎓 KL University</h2>
+  <p>Placement Management</p>
+  <button onclick="showPage('dashboard')">🏠 Dashboard</button>
+  <button onclick="showPage('profile')">👤 Student Profile</button>
+  <button onclick="showPage('courses')">📚 Courses</button>
+  <button onclick="showPage('cgpa')">📊 Semester CGPA</button>
+  <button onclick="showPage('certificates')">🏆 Certificates</button>
+  <button onclick="showPage('projects')">💻 Projects</button>
+  <button onclick="showPage('placements')">🏢 Placements</button>
+  <button onclick="showPage('eligibility')">✅ Eligibility</button>
+</div>
+
+<div class="main">
+  <header>
+    <h1>KL Placement Management System</h1>
+    <span>Student Portal</span>
+  </header>
+
+  <section id="dashboard" class="page active">
+    <h2>Welcome to Placement Dashboard</h2>
+    <div class="cards">
+      <div class="card">📚 Courses <h2 id="courseCount">0</h2></div>
+      <div class="card">📊 CGPA <h2 id="overallCgpa">0.00</h2></div>
+      <div class="card">🏆 Certificates <h2 id="certCount">0</h2></div>
+      <div class="card">💻 Projects <h2 id="projectCount">0</h2></div>
+    </div>
+    <div class="panel">
+      <h3>About Placement Portal</h3>
+      <p>Manage your academic performance, skills,
+      certificates, projects and placement preparation.</p>
+    </div>
+  </section>
+
+  <section id="profile" class="page">
+    <h2>Student Profile</h2>
+    <div class="panel">
+      <input id="studentName" placeholder="Student Name">
+      <input id="studentId" placeholder="Registration Number">
+      <input id="studentBranch" placeholder="Branch / Department">
+      <input id="studentEmail" type="email" placeholder="Email">
+      <button class="primary" onclick="saveProfile()">Save Profile</button>
+      <p id="profileMessage"></p>
+    </div>
+  </section>
+
+  <section id="courses" class="page">
+    <h2>My Courses</h2>
+    <div class="panel">
+      <input id="courseName" placeholder="Enter Course Name">
+      <button class="primary" onclick="addItem('course')">Add Course</button>
+      <ul id="courseList"></ul>
+    </div>
+  </section>
+
+  <section id="cgpa" class="page">
+    <h2>Semester-wise SGPA</h2>
+    <div class="panel">
+      <div id="semesterInputs"></div>
+      <button class="primary" onclick="calculateCgpa()">
+        Calculate CGPA
+      </button>
+      <h3 id="cgpaResult">Overall CGPA: 0.00</h3>
+      <p>Calculation assumes equal semester weight.</p>
+    </div>
+  </section>
+
+  <section id="certificates" class="page">
+    <h2>My Certificates</h2>
+    <div class="panel">
+      <input id="certName" placeholder="Certificate Name">
+      <input id="certIssuer" placeholder="Issued By">
+      <button class="primary" onclick="addItem('cert')">
+        Add Certificate
+      </button>
+      <ul id="certList"></ul>
+    </div>
+  </section>
+
+  <section id="projects" class="page">
+    <h2>My Projects</h2>
+    <div class="panel">
+      <input id="projectName" placeholder="Project Title">
+      <input id="projectTech" placeholder="Technologies Used">
+      <button class="primary" onclick="addItem('project')">
+        Add Project
+      </button>
+      <ul id="projectList"></ul>
+    </div>
+  </section>
+
+  <section id="placements" class="page">
+    <h2>Placement Opportunities</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Software Developer</h3>
+        <p>Example company: TCS</p>
+        <p>Skills: Java, SQL, DSA</p>
+      </div>
+      <div class="card">
+        <h3>Data Analyst</h3>
+        <p>Example company: Accenture</p>
+        <p>Skills: Python, Excel, SQL</p>
+      </div>
+      <div class="card">
+        <h3>Web Developer</h3>
+        <p>Example company: Infosys</p>
+        <p>Skills: HTML, CSS, JavaScript</p>
+      </div>
+    </div>
+    <p>These are illustrative roles, not verified live vacancies.</p>
+  </section>
+
+  <section id="eligibility" class="page">
+    <h2>Placement Eligibility Checker</h2>
+    <div class="panel">
+      <p>Demo eligibility rule: CGPA of 7.0 or above.</p>
+      <button class="primary" onclick="checkEligibility()">
+        Check Eligibility
+      </button>
+      <h3 id="eligibilityResult"></h3>
+      <p>Actual company requirements may differ.</p>
+    </div>
+  </section>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
